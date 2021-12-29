@@ -8,8 +8,9 @@ pool:
 
 steps:
 - task: ms-devlabs.custom-terraform-tasks.custom-terraform-release-task.TerraformTaskV2@2
-  displayName: 'Terraform : azurerm'
+  displayName: 'Terraform : init'
   inputs:
+    workingDirectory: prods/prod
     backendServiceArm: 'client-azure-infra-connect'
     backendAzureRmResourceGroupName: pipeline
     backendAzureRmStorageAccountName: clientazureinfra
@@ -17,9 +18,10 @@ steps:
     backendAzureRmKey: '0mxhsHuohVjdSgt4XCqGF0g5Qagzs2+ioAj+RAC410Ake7IFg0YivDbbksvMTvCo3LniDb4uBn8Zfa3hyjlPUQ=='
 
 - task: ms-devlabs.custom-terraform-tasks.custom-terraform-release-task.TerraformTaskV2@2
-  displayName: 'Terraform : azurerm'
+  displayName: 'Terraform : validate'
   inputs:
     command: validate
+    workingDirectory: prods/prod
     backendServiceArm: 'client-azure-infra-connect'
     backendAzureRmResourceGroupName: pipeline
     backendAzureRmStorageAccountName: clientazureinfra
@@ -28,7 +30,7 @@ steps:
     
  
 - task: ms-devlabs.custom-terraform-tasks.custom-terraform-release-task.TerraformTaskV2@2
-  displayName: 'Terraform : azurerm'
+  displayName: 'Terraform : plan'
   inputs:
     command: plan
     workingDirectory: prods/prod
@@ -41,7 +43,7 @@ steps:
 
 
 - task: ms-devlabs.custom-terraform-tasks.custom-terraform-release-task.TerraformTaskV2@2
-  displayName: 'Terraform : azurerm'
+  displayName: 'Terraform : apply'
   inputs:
     command: apply
     workingDirectory: prods/prod
