@@ -1,0 +1,53 @@
+trigger:
+- main
+ 
+pool:
+  name: Azure Pipelines
+  vmImage: 'vs2017-win2016'
+
+
+steps:
+- task: ms-devlabs.custom-terraform-tasks.custom-terraform-release-task.TerraformTaskV2@2
+  displayName: 'Terraform : azurerm'
+  inputs:
+    backendServiceArm: 'client-azure-infra-connect'
+    backendAzureRmResourceGroupName: pipeline
+    backendAzureRmStorageAccountName: clientazureinfra
+    backendAzureRmContainerName: tstate
+    backendAzureRmKey: '0mxhsHuohVjdSgt4XCqGF0g5Qagzs2+ioAj+RAC410Ake7IFg0YivDbbksvMTvCo3LniDb4uBn8Zfa3hyjlPUQ=='
+
+- task: ms-devlabs.custom-terraform-tasks.custom-terraform-release-task.TerraformTaskV2@2
+  displayName: 'Terraform : azurerm'
+  inputs:
+    command: validate
+    backendServiceArm: 'client-azure-infra-connect'
+    backendAzureRmResourceGroupName: pipeline
+    backendAzureRmStorageAccountName: clientazureinfra
+    backendAzureRmContainerName: tstate
+    backendAzureRmKey: '0mxhsHuohVjdSgt4XCqGF0g5Qagzs2+ioAj+RAC410Ake7IFg0YivDbbksvMTvCo3LniDb4uBn8Zfa3hyjlPUQ=='
+    
+ 
+- task: ms-devlabs.custom-terraform-tasks.custom-terraform-release-task.TerraformTaskV2@2
+  displayName: 'Terraform : azurerm'
+  inputs:
+    command: plan
+    workingDirectory: prods/prod
+    environmentServiceNameAzureRM: 'client-azure-infra-connect'
+    backendServiceArm: 'client-azure-infra-connect'
+    backendAzureRmResourceGroupName: pipeline
+    backendAzureRmStorageAccountName: clientazureinfra
+    backendAzureRmContainerName: tstate
+    backendAzureRmKey: '0mxhsHuohVjdSgt4XCqGF0g5Qagzs2+ioAj+RAC410Ake7IFg0YivDbbksvMTvCo3LniDb4uBn8Zfa3hyjlPUQ=='
+
+
+- task: ms-devlabs.custom-terraform-tasks.custom-terraform-release-task.TerraformTaskV2@2
+  displayName: 'Terraform : azurerm'
+  inputs:
+    command: apply
+    workingDirectory: prods/prod
+    environmentServiceNameAzureRM: 'client-azure-infra-connect'
+    backendServiceArm: 'client-azure-infra-connect'
+    backendAzureRmResourceGroupName: pipeline
+    backendAzureRmStorageAccountName: clientazureinfra
+    backendAzureRmContainerName: tstate
+    backendAzureRmKey: '0mxhsHuohVjdSgt4XCqGF0g5Qagzs2+ioAj+RAC410Ake7IFg0YivDbbksvMTvCo3LniDb4uBn8Zfa3hyjlPUQ=='
