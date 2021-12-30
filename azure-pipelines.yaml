@@ -37,7 +37,7 @@ steps:
   displayName: 'Terraform : plan'
   inputs:
     command: plan 
-    commandOptions: -var-file=$(System.DefaultWorkingDirectory)/terraform.prod.tfvars -out=$(System.DefaultWorkingDirectory)/cluster_prefix.tfplan
+    commandOptions: -var-file=terraform.prod.tfvars -out=$(System.DefaultWorkingDirectory)/cluster_prefix.tfplan
     workingDirectory: prods/prod
     environmentServiceNameAzureRM: 'client-azure-infra-connect'
     backendServiceArm: 'client-azure-infra-connect'
