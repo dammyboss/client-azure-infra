@@ -36,7 +36,8 @@ steps:
 - task: ms-devlabs.custom-terraform-tasks.custom-terraform-release-task.TerraformTaskV2@2
   displayName: 'Terraform : plan'
   inputs:
-    command: plan -var-file=$(System.DefaultWorkingDirectory)/terraform.prod.tfvars -out=$(System.DefaultWorkingDirectory)/cluster_prefix.tfplan
+    command: plan 
+    commandOptions: -var-file=$(System.DefaultWorkingDirectory)/terraform.prod.tfvars -out=$(System.DefaultWorkingDirectory)/cluster_prefix.tfplan
     workingDirectory: prods/prod
     environmentServiceNameAzureRM: 'client-azure-infra-connect'
     backendServiceArm: 'client-azure-infra-connect'
