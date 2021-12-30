@@ -14,7 +14,7 @@ steps:
 - task: ms-devlabs.custom-terraform-tasks.custom-terraform-release-task.TerraformTaskV2@2
   displayName: 'Terraform : init'
   inputs:
-    workingDirectory: prods/prod
+    workingDirectory: '$(System.DefaultWorkingDirectory)/prods/prod'
     backendServiceArm: 'client-azure-infra-connect'
     backendAzureRmResourceGroupName: pipeline
     backendAzureRmStorageAccountName: clientazureinfra
@@ -25,7 +25,7 @@ steps:
   displayName: 'Terraform : validate'
   inputs:
     command: validate
-    workingDirectory: prods/prod
+    workingDirectory: '$(System.DefaultWorkingDirectory)/prods/prod'
     backendServiceArm: 'client-azure-infra-connect'
     backendAzureRmResourceGroupName: pipeline
     backendAzureRmStorageAccountName: clientazureinfra
