@@ -33,4 +33,3 @@ provider "azurerm" {
 //    cluster_ca_certificate = base64decode(module.aks-acr.client_certificate)
 //  }
 //}
-
