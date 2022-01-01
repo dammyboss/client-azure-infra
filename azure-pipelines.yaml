@@ -42,18 +42,30 @@ steps:
     backendAzureRmKey: '0mxhsHuohVjdSgt4XCqGF0g5Qagzs2+ioAj+RAC410Ake7IFg0YivDbbksvMTvCo3LniDb4uBn8Zfa3hyjlPUQ=='
     
  
-- task: ms-devlabs.custom-terraform-tasks.custom-terraform-release-task.TerraformTaskV2@2
-  displayName: 'Terraform : plan'
-  inputs:
-    command: plan -var-file=terraform.prod.tfvars 
-#     -out=$(System.DefaultWorkingDirectory)/cluster_prefix.tfplan
-    workingDirectory: '$(System.DefaultWorkingDirectory)/prods/prod'
-    environmentServiceNameAzureRM: 'client-azure-infra-connect'
-    backendServiceArm: 'client-azure-infra-connect'
-    backendAzureRmResourceGroupName: pipeline
-    backendAzureRmStorageAccountName: clientazureinfra
-    backendAzureRmContainerName: tstate
-    backendAzureRmKey: '0mxhsHuohVjdSgt4XCqGF0g5Qagzs2+ioAj+RAC410Ake7IFg0YivDbbksvMTvCo3LniDb4uBn8Zfa3hyjlPUQ=='
+# - task: ms-devlabs.custom-terraform-tasks.custom-terraform-release-task.TerraformTaskV2@2
+#   displayName: 'Terraform : plan'
+#   inputs:
+#     command: plan -var-file=terraform.prod.tfvars 
+# #     -out=$(System.DefaultWorkingDirectory)/cluster_prefix.tfplan
+#     workingDirectory: '$(System.DefaultWorkingDirectory)/prods/prod'
+#     environmentServiceNameAzureRM: 'client-azure-infra-connect'
+#     backendServiceArm: 'client-azure-infra-connect'
+#     backendAzureRmResourceGroupName: pipeline
+#     backendAzureRmStorageAccountName: clientazureinfra
+#     backendAzureRmContainerName: tstate
+#     backendAzureRmKey: '0mxhsHuohVjdSgt4XCqGF0g5Qagzs2+ioAj+RAC410Ake7IFg0YivDbbksvMTvCo3LniDb4uBn8Zfa3hyjlPUQ=='
+
+  - task: ms-devlabs.custom-terraform-tasks.custom-terraform-release-task.TerraformTaskV2@2
+    displayName: 'Terraform : PLAN'
+    inputs:
+      command: plan
+      workingDirectory: '$(System.DefaultWorkingDirectory)/prods/prod'
+      environmentServiceNameAzureRM: 'Visual Studio Enterprise (85c7908d-8028-4894-af5d-1991ee8f0450)'
+      backendServiceArm: 'Visual Studio Enterprise (85c7908d-8028-4894-af5d-1991ee8f0450)'
+      backendAzureRmResourceGroupName: pipeline
+      backendAzureRmStorageAccountName: clientazureinfra
+      backendAzureRmContainerName: tstate
+      backendAzureRmKey: '0mxhsHuohVjdSgt4XCqGF0g5Qagzs2+ioAj+RAC410Ake7IFg0YivDbbksvMTvCo3LniDb4uBn8Zfa3hyjlPUQ'
 
 
 - task: ms-devlabs.custom-terraform-tasks.custom-terraform-release-task.TerraformTaskV2@2
