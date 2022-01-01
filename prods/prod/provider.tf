@@ -6,7 +6,6 @@ terraform {
       source  = "hashicorp/azurerm"
       version = "=2.46.0"
     }
-    
   }
 //  backend "azurerm" {
 //    resource_group_name  = "TerraformEchonous"
@@ -16,7 +15,7 @@ terraform {
 //  }
 }
 
-Configure the Microsoft Azure Provider
+# Configure the Microsoft Azure Provider
 provider "azurerm" {
   features {}
   subscription_id = "85c7908d-8028-4894-af5d-1991ee8f0450"
@@ -35,18 +34,3 @@ provider "azurerm" {
 //  }
 //}
 
-# ###########################
-# ## Azure Provider - Main ##
-# ###########################
-
-# # Define Terraform provider
-# terraform {
-#   required_version = ">= 0.12"
-# }
-
-# # Configure the Azure provider
-# provider "azurerm" {
-#   environment = "public"
-#   version     = ">= 2.15.0"
-#   features {}
-# }
