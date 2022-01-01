@@ -17,13 +17,13 @@
 }
 
 # Configure the Microsoft Azure Provider
-provider "azurerm" {
-  features {}
-  subscription_id = ""
-//  client_id       = ""
-//  client_secret   = var.client_secret
-  tenant_id       = ""
-}
+# provider "azurerm" {
+#   features {}
+#   subscription_id = ""
+# //  client_id       = ""
+# //  client_secret   = var.client_secret
+#   tenant_id       = ""
+# }
 
 //provider "helm" {
 //  kubernetes {
