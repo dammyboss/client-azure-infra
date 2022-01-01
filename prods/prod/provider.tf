@@ -7,11 +7,6 @@ terraform {
       version = "=2.46.0"
     }
     
-    provider "azuredevops" {
-  org_service_url = var.ado_org_service_url
-  # Authentication through PAT defined with AZDO_PERSONAL_ACCESS_TOKEN 
-}
-    
   }
 //  backend "azurerm" {
 //    resource_group_name  = "TerraformEchonous"
